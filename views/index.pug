@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Api Harry Potter 
+    link(rel='stylesheet', href='/styles.css')
+
+  body
+    h1 Personajes de Harry Potter!!!
+
+    h1 Filtros:
+
+    // Filtros
+    form(method='GET')
+      select(name="species") 
+        option(value='') Filtrar por Raza(species)
+        option(value='human') Humano
+        option(value='half-giant') Semi-gigante
+        option(value='goblin') Duende
+
+      select(name="gender") 
+        option(value='') Filtrar por Género
+        option(value='male') Masculino
+        option(value='female') Femenino
+
+      button(type='submit') Filtrar
+
+    // Cards
+    .cards
+      each personaje in personajes
+        .card
+          img(src=personaje.image || '/images/default.png' , alt=personaje.name)
+          h2= personaje.name 
+          p Casa: #{personaje.house}
